@@ -94,7 +94,7 @@ export default function Home() {
           {!data.user.mfaEnabled ? (
             <div className="space-y-4">
               <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-                <h3 className="font-medium text-yellow-800 mb-2">🔒 Two-Factor Authentication</h3>
+                <h3 className="font-medium text-yellow-800 mb-2">Two-Factor Authentication</h3>
                 <p className="text-yellow-700 text-sm">
                   Protect your account with an additional layer of security using an authenticator app.
                 </p>

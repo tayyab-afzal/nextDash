@@ -2,8 +2,8 @@ import "./globals.css";
 import Providers from "./providers";
 
 export const metadata = {
-	title: "MyApp",
-	description: "Secure Next.js app",
+	title: "nextDash",
+	description: "nextJS Dashbaord for Azure Piepline testing",
 };
 
 export default function RootLayout({ children }) {

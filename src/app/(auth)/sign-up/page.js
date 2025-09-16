@@ -8,7 +8,7 @@ import { useState } from "react";
 
 const schema = z.object({
   name: z.string().min(2, "Name is too short"),
-  email: z.string().email("Invalid email"),
+  email: z.email("Invalid email"),
   password: z.string().min(8, "Min 8 characters"),
 });
 
