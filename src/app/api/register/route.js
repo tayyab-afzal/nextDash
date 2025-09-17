@@ -11,6 +11,7 @@ const registerSchema = z.object({
 
 export async function POST(req) {
 	try {
+		console.log("[/api/register] POST called");
 		const body = await req.json();
 		const data = registerSchema.parse(body);
 
@@ -20,6 +21,7 @@ export async function POST(req) {
 
 		const existing = await users.findOne({ email: data.email.toLowerCase() });
 		if (existing) {
+			console.log("[/api/register] duplicate email", data.email);
 			return NextResponse.json({ error: "Email already in use" }, { status: 400 });
 		}
 
@@ -29,14 +31,14 @@ export async function POST(req) {
 			name: data.name.trim(),
 			email: data.email.toLowerCase(),
 			passwordHash,
-			mfaEnabled: false,
-			mfaSecretEnc: null,
 			createdAt: now,
 			updatedAt: now,
 		});
 
+		console.log("[/api/register] user created", data.email);
 		return NextResponse.json({ ok: true });
 	} catch (e) {
+		console.error("[/api/register] error", e);
 		return NextResponse.json({ error: e.message || "Invalid request" }, { status: 400 });
 	}
 }

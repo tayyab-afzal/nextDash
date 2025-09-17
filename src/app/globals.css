@@ -23,35 +23,98 @@ body {
   }
 }
 
-/* Custom button styles */
-.btn-primary {
-  @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+.bg-all {
+  @apply bg-gradient-to-br
+  from-slate-800 via-slate-950 to-zinc-900;
 }
 
 .btn-secondary {
-  @apply bg-gray-200 hover:bg-gray-300 text-gray-900 font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  @apply bg-gray-200 
+  hover:bg-gray-300 
+  text-gray-900 
+  font-medium py-2 px-4 
+  rounded-lg 
+  transition-colors duration-200;
 }
 
-/* Form styles */
 .form-input {
-  @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+  @apply w-full px-4 py-2.5 rounded-xl 
+         bg-white/10 backdrop-blur-md 
+         border border-white/20 
+         text-white placeholder-gray-400 
+         focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent 
+         transition duration-400;
 }
 
 .form-label {
-  @apply block text-sm font-medium text-gray-700 mb-1;
+  @apply block text-sm font-medium 
+         text-gray-200 
+         mb-1 tracking-wide;
 }
 
-/* Card styles */
 .card {
-  @apply bg-white rounded-xl shadow-lg border border-gray-100 p-6;
+  @apply bg-white/10 backdrop-blur-lg rounded-2xl 
+         border border-white/20 
+         shadow-xl shadow-black/40 
+         p-6;
 }
 
-/* Error text */
 .error-text {
-  @apply text-red-600 text-sm mt-1;
+  @apply text-red-400 text-sm mt-1;
 }
 
-/* Success text */
 .success-text {
   @apply text-green-600 text-sm mt-1;
+}
+
+.url {
+  @apply font-medium text-violet-300 
+         hover:text-violet-400 
+         transition-colors duration-400;
+}
+
+.dashboard-central {
+  @apply bg-white/10 backdrop-blur-lg 
+         p-6;
+}
+
+.spin-load {
+  @apply h-5 w-5 animate-spin rounded-full 
+         border-2 border-white border-t-transparent;
+}
+
+.btn-primary {
+  @apply px-5 py-2.5 rounded-xl font-medium 
+         bg-violet-800/60 backdrop-blur-md 
+         text-white border border-violet-400/20 
+         hover:bg-violet-800/80 hover:border-violet-400/30 
+         transition duration-400 
+         flex items-center justify-center;
+}
+
+.btn-loading {
+  @apply relative;
+}
+
+.btn-loading .spin-load {
+  @apply absolute;
+}
+
+.btn-loading span {
+  @apply opacity-0;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
 }
